@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food POS System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="pos-container">
+
+    <!-- LEFT SIDE -->
+    <main class="main-content">
+
+        <header class="top-bar">
+            <div>
+                <h1>Food POS</h1>
+                <p>Select food items to create an order</p>
+            </div>
+
+            <div class="order-number">
+                Order #<span id="orderNumber">1001</span>
+            </div>
+        </header>
+
+        <!-- CATEGORIES -->
+        <section class="categories">
+            <button class="category-btn active" data-category="All">
+                All
+            </button>
+
+            <button class="category-btn" data-category="Burger">
+                Burgers
+            </button>
+
+            <button class="category-btn" data-category="Pizza">
+                Pizza
+            </button>
+
+            <button class="category-btn" data-category="Drinks">
+                Drinks
+            </button>
+
+            <button class="category-btn" data-category="Dessert">
+                Desserts
+            </button>
+        </section>
+
+        <!-- FOOD ITEMS -->
+        <section class="food-grid" id="foodGrid">
+            <!-- JavaScript will load foods here -->
+        </section>
+
+    </main>
+
+
+    <!-- RIGHT SIDE -->
+    <aside class="checkout">
+
+        <div class="checkout-header">
+            <div>
+                <h2>Current Order</h2>
+                <p><span id="itemCount">0</span> items</p>
+            </div>
+
+            <button class="clear-btn" id="clearOrder">
+                Clear
+            </button>
+        </div>
+
+
+        <!-- CHECKOUT ITEMS -->
+        <div class="checkout-items" id="checkoutItems">
+
+            <div class="empty-cart">
+                <div class="empty-icon">🛒</div>
+                <h3>No items yet</h3>
+                <p>Select food items to add them to the order.</p>
+            </div>
+
+        </div>
+
+
+        <!-- ORDER SUMMARY -->
+        <div class="order-summary">
+
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span>Rs. <span id="subtotal">0.00</span></span>
+            </div>
+
+            <div class="summary-row">
+                <span>Tax (0%)</span>
+                <span>Rs. <span id="tax">0.00</span></span>
+            </div>
+
+            <div class="summary-row total-row">
+                <span>Total</span>
+                <span>Rs. <span id="total">0.00</span></span>
+            </div>
+
+        </div>
+
+
+        <!-- PAYMENT METHOD -->
+        <div class="payment-section">
+
+            <h3>Payment Method</h3>
+
+            <div class="payment-methods">
+
+                <label class="payment-option">
+                    <input type="radio"
+                           name="payment"
+                           value="Cash"
+                           checked>
+
+                    <span>💵</span>
+                    <strong>Cash</strong>
+                </label>
+
+
+                <label class="payment-option">
+                    <input type="radio"
+                           name="payment"
+                           value="Card">
+
+                    <span>💳</span>
+                    <strong>Card</strong>
+                </label>
+
+
+                <label class="payment-option">
+                    <input type="radio"
+                           name="payment"
+                           value="Online">
+
+                    <span>📱</span>
+                    <strong>Online</strong>
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- CHECKOUT BUTTON -->
+        <button class="checkout-btn" id="checkoutBtn">
+            Complete Payment
+        </button>
+
+    </aside>
+
+</div>
+
+
+<!-- SUCCESS MODAL -->
+
+<div class="modal-overlay" id="successModal">
+
+    <div class="success-box">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>Payment Successful!</h2>
+
+        <p class="success-message">
+            Your order has been completed successfully.
+        </p>
+
+        <div class="receipt">
+
+            <div class="receipt-row">
+                <span>Order ID</span>
+                <strong id="receiptOrderId">#1001</strong>
+            </div>
+
+            <div class="receipt-row">
+                <span>Date</span>
+                <strong id="receiptDate"></strong>
+            </div>
+
+            <div class="receipt-row">
+                <span>Items</span>
+                <strong id="receiptItems">0</strong>
+            </div>
+
+            <div class="receipt-row">
+                <span>Payment</span>
+                <strong id="receiptPayment">Cash</strong>
+            </div>
+
+            <div class="receipt-total">
+                <span>Total Paid</span>
+                <strong>
+                    Rs. <span id="receiptTotal">0.00</span>
+                </strong>
+            </div>
+
+        </div>
+
+        <button class="new-order-btn" id="newOrderBtn">
+            Start New Order
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
